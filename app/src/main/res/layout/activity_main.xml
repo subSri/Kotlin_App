@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="25dp"
+        android:background="@drawable/weatherback">
+
+
+        <RelativeLayout
+            android:id="@+id/mainContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:visibility="visible">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <SearchView
+                        android:id="@+id/searchView"
+                        android:layout_width="256dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        app:theme="@style/AppSearchView"
+                        android:queryHint="Enter the place"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/addressContainer"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/addressContainer"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.004" />
+
+                    <LinearLayout
+                        android:id="@+id/addressContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toTopOf="@+id/overviewContainer"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/searchView"
+                        app:layout_constraintVertical_bias="0.512">
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Welcome"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24dp" />
+
+                        <TextView
+                            android:id="@+id/updated_at"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Search for a place above"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/overviewContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/searchView"
+                        app:layout_constraintVertical_bias="0.36"
+                        tools:layout_editor_absoluteX="1dp">
+
+                        <TextView
+                            android:id="@+id/status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:id="@+id/temp"
+                            android:layout_width="282dp"
+                            android:layout_height="99dp"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif-light"
+                            android:text="°C"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="70dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/temp_max"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Max Temp"
+                                android:textColor="#FFFFFF" />
+
+                            <Space
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/temp_min"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Min Temp"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="359dp"
+                        android:layout_height="5dp"
+                        android:background="#FFFFFF"
+                        app:layout_constraintBottom_toTopOf="@+id/overviewContainer"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/addressContainer" />
+
+
+                    <View
+                        android:id="@+id/divider4"
+
+                        android:layout_width="359dp"
+                        android:layout_height="5dp"
+                        android:background="#FFFFFF"
+                        app:layout_constraintBottom_toTopOf="@+id/addressContainer"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/imageView"-->
+                    <!--                        android:layout_width="161dp"-->
+                    <!--                        android:layout_height="60dp"-->
+                    <!--                        app:srcCompat="@drawable/mappy"-->
+                    <!--                        tools:layout_editor_absoluteX="200dp"-->
+                    <!--                        tools:layout_editor_absoluteY="5dp" />-->
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="52dp"
+                        android:layout_height="49dp"
+                        android:layout_marginBottom="4dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toTopOf="@+id/divider4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/searchView"
+
+                        app:layout_constraintTop_toTopOf="@+id/searchView"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/mappy" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                            android:id="@+id/detailsContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="#000000"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+
+                                    android:padding="8dp">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="36dp"
+                                        android:layout_weight="10"
+
+                                        android:adjustViewBounds="true"
+                                        android:cropToPadding="true"
+                                        android:scaleType="fitEnd"
+                                        android:src="@drawable/ic_day" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sunrise"
+                                        android:textSize="12dp"
+                                        android:textColor="#FFFFFF"/>
+
+                                    <Space
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                    <TextView
+                                        android:id="@+id/sunrise"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=""
+                                        android:textSize="14dp"
+                                        android:textColor="#FFFFFF"/>
+                                </LinearLayout>
+
+                                <Space
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="#000000"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="8dp">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="36dp"
+                                        android:layout_weight="10"
+                                        android:adjustViewBounds="true"
+                                        android:cropToPadding="true"
+                                        android:scaleType="fitEnd"
+                                        android:src="@drawable/ic_sunset"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sunset"
+                                        android:textSize="12dp"
+                                        android:textColor="#FFFFFF"/>
+
+                                    <Space
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                    <TextView
+                                        android:id="@+id/sunset"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=""
+                                        android:textSize="14dp"
+                                        android:textColor="#FFFFFF"/>
+                                </LinearLayout>
+
+                                <Space
+                                    android:layout_width="10dp"
+                                    android:layout_height="wrap_content" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="#000000"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="8dp">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="36dp"
+                                        android:layout_weight="10"
+                                        android:adjustViewBounds="true"
+                                        android:cropToPadding="true"
+                                        android:scaleType="fitEnd"
+                                        android:src="@drawable/ic_thunder"
+                                        />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Wind"
+                                        android:textSize="12dp"
+                                        android:textColor="#FFFFFF"/>
+
+                                    <Space
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                    <TextView
+                                        android:id="@+id/wind"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=""
+                                        android:textSize="14dp"
+                                        android:textColor="#FFFFFF"/>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="10dp" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:weightSum="3">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:layout_weight="1"
+                        android:gravity="center" android:padding="8dp"
+                        android:background="#000000">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_weight="10"
+                            android:adjustViewBounds="true"
+                            android:cropToPadding="true"
+                            android:scaleType="fitEnd"
+                            android:src="@drawable/ic_presuur" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pressure"
+                            android:textSize="12dp"
+                            android:textColor="#FFFFFF"/>
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/pressure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="14dp"
+                            android:textColor="#FFFFFF"/>
+
+                    </LinearLayout>
+                    <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:layout_weight="1"
+                        android:gravity="center" android:padding="8dp"
+                        android:background="#000000">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_weight="10"
+                            android:adjustViewBounds="true"
+                            android:cropToPadding="true"
+                            android:scaleType="fitEnd"
+                            android:src="@drawable/ic_humid" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Humidity"
+                            android:textSize="12dp"
+                            android:textColor="#FFFFFF"/>
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/humid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="14dp"
+                            android:textColor="#FFFFFF"/>
+                    </LinearLayout>
+                    <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#000000"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+                        <!--                        <ImageView android:layout_width="25dp" android:layout_height="25dp"-->
+                        <!--                            android:src="@drawable/info" android:tint="#FFFFFF"/>-->
+                        <!--                        <Space android:layout_width="wrap_content" android:layout_height="5dp"/>-->
+                        <!--                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                        <!--                            android:textSize="12dp" android:text="Created By"/>-->
+                        <!--                        <TextView android:id="@+id/about" android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content" android:textSize="14dp"-->
+                        <!--                            android:text="AndroDocs"/>-->
+
+                        <Switch
+                            android:id="@+id/switch1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:textColor="@color/common_google_signin_btn_tint"
+                            android:textColorHighlight="#081E92"
+                            android:textColorLink="#2742E4"
+                            android:theme="@style/SwitchTheme"
+                            app:layout_constraintBottom_toBottomOf="@+id/searchView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.728"
+                            app:layout_constraintStart_toEndOf="@+id/searchView"
+                            app:layout_constraintTop_toTopOf="@+id/searchView"
+                            app:layout_constraintVertical_bias="1.0"
+                            tools:checked="false" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="27dp"
+                            android:text="My Location"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+                        </LinearLayout>
+        </RelativeLayout>
+
+        <ProgressBar
+
+        style="?android:attr/progressBarStyleHorizontal"
+        android:minHeight="50dp"
+        android:minWidth="250dp"
+        android:max="100"
+        android:indeterminate="true"
+        android:progress="1"
+            android:indeterminateTint="@android:color/white"
+            android:id="@+id/loader" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="240dp"
+        android:layout_height="37dp"
+
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="129dp"
+        android:layout_marginEnd="9dp"
+        android:text="Something went wrong"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="126dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/errorText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="189dp"
+        android:visibility="gone"
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
+
+
+</RelativeLayout>
